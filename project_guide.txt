@@ -1,0 +1,169 @@
+// HOW TO Install NODE in your projects
+2:28:42
+
+=== CD BACKEND === 
+1. change the directory of your CMD Terminal first
+ex: from "\HTML\tasks-app-myVersion>" use "cd backend"
+to get inside the backend folder.
+
+=== NPM INIT -Y === 
+2. Initialize the NODE js runtime inside the "/backend" using
+"npm init -y".
+- it will create a "package.json" that we can configure later.
+
+=== NPM INSTALL EXPRESS ===
+3. After Initializing Node inside our "backend" install EXPRESS js
+using "npm install express" you can add "@4.0.5" beside express if
+you want a specific version  for your project.
+
+=== NPM RUN DEV ("dev" can be any key) ===
+4. "npm run dev" can only be used if you modify these in your 
+"package.json".
+
+ "scripts": {
+    "dev": "node src/index.js"
+  },
+
+=== .GITIGNORE ===
+5. After installation of express, ignore the "package-lock.json"
+and create a ".gitignore" to avoid commiting unnecessary files to
+our GITHUB REPO.
+
+- Inside .gitignore add "node_modules" ".env" and "dist" these
+are the future unnecessary files that we wont be needing in
+our REPO.
+
+- .env SHOULDN"T BE PUSHED, because of important informations inside it.\
+SO BECAREFUL.
+
+=== FUTURE MODULE INSTALLATIONS/INIT ===
+npm install dotenv
+npm install
+npm install nodemon (optional)
+npm init @eslint/config@latest (optional)
+
+=== FUTURE FOLDER/FILE CREATIONS ===
+=== IN ORDER ===
+/task-app-myVersion
+./src
+../index.js
+
+../data
+.../tasks.js
+
+../models
+.../taskModel.js
+
+../controllers
+.../tasksController.js
+
+../routes
+.../taskRoutes.js
+
+../validations
+.../taskValidations.js
+
+../middleware
+.../logger.js
+.../protect.js
+
+=== GIT INIT ===
+// Upon cd backend, use "git init" to initialize GIT to your project.
+
+1. "git add ." - add all files here, except the files inside ".gitignore".
+2. 'git commit -m "Initial Commit"' - Your first commit in local repo.
+
+3. Go to github and create a specific REPO for this project,
+and copy the HTTP or SSH of that REPO.
+4. "git remote add origin git@github.com:your-username/your-repo-name.git" - to connect your
+local REPO to the github REPO
+5. "git remote -v" - to confirm if you are already connected
+6. "git branch" - to confirm what branch you are in ("main" or "master").
+
+7. "git push -u origin main" - (main) depends on what branch you are located
+upon using "git branch".
+8. After this, for every commit you will push to the your REPO, just follow
+steps 1,2 and 7.
+
+=== VITE REACT frontend installation ===
+
+1. cd (your frontend folder)
+2. npm init -y 
+3. npm create vite@latest .
+4. Pick React and Javascript
+5. npm install
+6. npm run dev
+
+= Unused =
+I. Delete App.css, assets
+II. Delete contents App.jsx and index.css
+
+= Add =
+I. In main.jsx -> <BrowserRouter> from "react-router"
+
+= Modules =
+I. npm i react-router
+II. npm i react-hot-toast
+
+III. Install Tailwind CSS
+- npm install -D tailwindcss@3 postcss autoprefixer npx tailwindcss init -p
+-- update tailwind.config.js (Copy the config from v3.tailwind via Vite config)
+-- update index.css (Copy the config from v3.tailwind via Vite config)
+
+IV. Install DaisyUI 
+- npm install i daisyui@4.12.24 -D
+-- update tailwind.config.js (import daisyui from "daisyui")
+-- update tailwind.config.js base on your preference ("coffee")
+
+=== DEPLOY PRODUCTION SERVER ===
+1. push the local repo to your github repo
+- cd root folder of the backend & frontend
+- add .gitnore from frontend folder
+- add .env | node_modules | dist to .gitignore
+
+2. npm init -y 
+- package.json
+- update package.json
+"scripts":{
+"build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+"start": "npm run start --prefix backend"
+}
+
+=== MONGO DB ===
+DON'T USE npm install mongodb
+
+1. npm install mongoose <- Use this instead
+
+
+=== HTTP STATUS CODES ===
+
+1XX - informational
+2XX - Success (201 Newly created)
+3XX - Redirected (301 Permanently moved)
+4XX - Error Status Codes
+- 400 Bad Request or invalid
+- 401 Unauthorized (must login)
+- 403 Forbidden (not allowed to access)
+- 404 Not Found (no such Resource)
+- 429 Too many request
+5XX - Server Side Errors
+- 500 Internal Server Error
+- 503 Server Unavailable
+
+=== TESTING ===
+POSTMAN
+- GET
+- POST 
+- GET (by ID)
+- PUT 
+- DELETE
+
+=== FORK & PR ===
+// FORK the repo first
+git clone sshOfRepo.git
+cd sshOfRepo
+
+git checkout -b newNameOfRepoBranch
+git add .
+git commit -m "message"
+git push -u origin newNameOfRepoBranch

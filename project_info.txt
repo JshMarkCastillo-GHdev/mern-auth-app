@@ -1,0 +1,13 @@
+=== MERN AUTH APP with JWT ===
+
+1. Create a simple workouts organizer.
+> Backend
+I. find all workouts
+II. find workout by id
+III. create workout
+IV. delete workout by id
+V. update(patch) workout by id
+
+> Frontend (WIP)
+
+2. Apply Authentication, Login and Signup
