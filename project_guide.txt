@@ -42,6 +42,29 @@ npm install
 npm install nodemon (optional)
 npm init @eslint/config@latest (optional)
 
+=== MONGO DB ===
+DON'T USE npm install mongodb
+
+1. npm install mongoose <- Use this instead
+
+=== CORS ===
+We need CORS to enable cross website testing during
+development
+1. npm install cors 
+
+=== AXIOS ===
+We need axios for more organize backend calls from
+frontend
+1. npm install axios
+
+=== REDIS ===
+This is needed for the rate limiter.
+1. npm install @upstash/ratelimit@2.0.5 @upstash/redis@1.34.9
+
+=== LUCIDE-REACT ===
+For symbols and signs on frontend
+1. npm install lucide-react
+
 === FUTURE FOLDER/FILE CREATIONS ===
 === IN ORDER ===
 /task-app-myVersion
@@ -107,11 +130,11 @@ II. npm i react-hot-toast
 
 III. Install Tailwind CSS
 - npm install -D tailwindcss@3 postcss autoprefixer npx tailwindcss init -p
--- update tailwind.config.js (Copy the config from v3.tailwind via Vite config)
+-- update  or create new tailwind.config.js (Copy the config from v3.tailwind via Vite config)
 -- update index.css (Copy the config from v3.tailwind via Vite config)
 
 IV. Install DaisyUI 
-- npm install i daisyui@4.12.24 -D
+- npm install daisyui@4.12.24 -D
 -- update tailwind.config.js (import daisyui from "daisyui")
 -- update tailwind.config.js base on your preference ("coffee")
 
@@ -128,12 +151,6 @@ IV. Install DaisyUI
 "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
 "start": "npm run start --prefix backend"
 }
-
-=== MONGO DB ===
-DON'T USE npm install mongodb
-
-1. npm install mongoose <- Use this instead
-
 
 === HTTP STATUS CODES ===
 
