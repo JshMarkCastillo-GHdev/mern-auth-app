@@ -17,20 +17,25 @@ const WorkoutCard = ({ workout, setWorkouts }) => {
       console.log("Error in handleDelete.", error);
       toast.error("Failed to delete workout");
     }
+
+    // Will add this later to customize Workout Detail page
+    // `/workouts/${workout._id}`
   };
   return (
     <Link
-      to={`/workouts/${workout._id}`}
+      to={`/`}
       className="card bg-base-100 hover:shadow-lg transition-all duration-200
   border-4 border-solid border-[#e2a808]"
     >
       <div className="card-body">
         <h3 className="card-title text-base-content">{workout.title}</h3>
         <p className="text-base-content/70 line-clamp-3">
-          <b>Reps:</b> {workout.reps}
+          <strong>Reps: </strong>
+          {workout.reps}
         </p>
         <p className="text-base-content/70 line-clamp-3">
-          <b>Load:</b> {workout.load} (kg)
+          <strong>Load(kg): </strong>
+          {workout.load}
         </p>
         <div className="card-actions justify-between items-center mt-4">
           <span className="text-sm text-base-content/60">

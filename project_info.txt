@@ -9,5 +9,10 @@ IV. delete workout by id
 V. update(patch) workout by id
 
 > Frontend (WIP)
+I. Created Homepage
+II. Created Components Navbar, Popup, RateLimitedUI,
+Workout Card, Workout Form, Workout Not Found UI.
+III. Created Modal Popup window for "+ New Workout" button
+instead of navigating to other pages.
 
 2. Apply Authentication, Login and Signup
