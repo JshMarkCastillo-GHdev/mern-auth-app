@@ -25,7 +25,7 @@ const WorkoutCard = ({ workout, setWorkouts }) => {
     <Link
       to={`/`}
       className="card bg-base-100 hover:shadow-lg transition-all duration-200
-  border-4 border-solid border-[#e2a808]"
+  border-4 border-solid border-primary"
     >
       <div className="card-body">
         <h3 className="card-title text-base-content">{workout.title}</h3>
