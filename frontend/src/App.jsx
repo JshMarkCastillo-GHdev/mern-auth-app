@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 
 const App = () => {
   return (
-    <div>
+    <div data-theme="dracula">
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>

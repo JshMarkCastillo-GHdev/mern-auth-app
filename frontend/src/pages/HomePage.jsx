@@ -1,17 +1,22 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import toast from "react-hot-toast";
-import api from "../lib/axios";
+import api, { rateLimitHandler } from "../lib/axios";
 import RateLimitedUI from "../components/RateLimitedUI";
 import WorkoutsNotFound from "../components/WorkoutsNotFound";
 import WorkoutCard from "../components/workoutCard";
 import WorkoutForm from "../components/WorkoutForm";
 import Popup from "../components/Popup";
+import WorkoutDetail from "../components/WorkoutDetail";
 
 const HomePage = () => {
   const [isRateLimited, setIsRateLimited] = useState(false);
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // Popup handlers
+  const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);
+  const [isWorkoutDetailOpen, setIsWorkoutDetailOpen] = useState(false);
 
   useEffect(() => {
     const fetchWorkouts = async () => {
@@ -32,7 +37,22 @@ const HomePage = () => {
     };
 
     fetchWorkouts();
+    rateLimitHandler(setIsRateLimited);
   }, []);
+
+  const openWorkoutDetails = (id) => {
+    setSelectedWorkoutId(id);
+    setIsWorkoutDetailOpen(true);
+    document.getElementById("modal_detail").showModal();
+
+    // console.log("Workout ID: ", id);
+    // console.log("Workout Open?: ", isWorkoutDetailOpen);
+  };
+
+  const closeWorkoutDetails = () => {
+    setSelectedWorkoutId(null);
+    setIsWorkoutDetailOpen(false);
+  };
 
   return (
     <div className="min-h-screen font-poppins">
@@ -53,14 +73,35 @@ const HomePage = () => {
                 key={workout._id}
                 workout={workout}
                 setWorkouts={setWorkouts}
+                onOpen={openWorkoutDetails}
               />
             ))}
           </div>
         )}
       </div>
 
-      <Popup>
-        <WorkoutForm modal_id="modal_1" setWorkouts={setWorkouts} />
+      <Popup modal_id="modal_form">
+        {isRateLimited ? (
+          <RateLimitedUI />
+        ) : (
+          <WorkoutForm modal_id="modal_form" setWorkouts={setWorkouts} />
+        )}
+      </Popup>
+
+      <Popup modal_id="modal_detail" onClose={closeWorkoutDetails}>
+        {isRateLimited ? (
+          <RateLimitedUI />
+        ) : (
+          isWorkoutDetailOpen &&
+          selectedWorkoutId && (
+            <WorkoutDetail
+              id={selectedWorkoutId}
+              isRateLimited={isRateLimited}
+              modal_id="modal_detail"
+              setWorkouts={setWorkouts}
+            />
+          )
+        )}
       </Popup>
     </div>
   );

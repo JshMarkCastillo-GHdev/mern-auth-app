@@ -12,7 +12,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <button
               className="btn btn-primary"
-              onClick={() => document.getElementById("modal_1").showModal()}
+              onClick={() => document.getElementById("modal_form").showModal()}
             >
               <PlusIcon className="size-5" />
               <span>New Workout</span>
