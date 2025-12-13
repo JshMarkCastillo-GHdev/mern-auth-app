@@ -25,9 +25,9 @@ Minor:
 
 Major:
 - Add WorkoutDetailPage.jsx for the edit and delete of workouts
-- Add react useRef on Popup.jsx for persistent state of Popups
 - Modify Modal Popup window to be a Popup Window Controller
-for dynamic Popup IDs
+for dynamic Popup IDs, and react useRef on Popup.jsx for persistent
+state of Popups
 - Modify axios.js to have an API interceptor to dynamically
 detect 429 Rate Limitation across all webpage components
 - Modify isRateLimited as a centralized useState boolean for
