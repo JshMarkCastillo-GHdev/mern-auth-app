@@ -74,6 +74,7 @@ const WorkoutForm = ({ modal_id, setWorkouts }) => {
                     <span className="label-text">Workout Title:</span>
                   </label>
                   <input
+                    autoFocus
                     type="text"
                     placeholder="Add a Workout Name"
                     className="input input-bordered"

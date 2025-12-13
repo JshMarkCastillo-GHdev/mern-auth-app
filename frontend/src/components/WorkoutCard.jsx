@@ -4,7 +4,7 @@ import { formatDate } from "../lib/utils";
 import api from "../lib/axios";
 import toast from "react-hot-toast";
 
-const WorkoutCard = ({ workout, setWorkouts }) => {
+const WorkoutCard = ({ workout, setWorkouts, onOpen }) => {
   // Delete function
   const handleDelete = async (e, id) => {
     e.preventDefault(); // prevent the navigation behaviour
@@ -20,10 +20,12 @@ const WorkoutCard = ({ workout, setWorkouts }) => {
 
     // Will add this later to customize Workout Detail page
     // `/workouts/${workout._id}`
+    // IN PROGRESS (used Popup Window Method)
   };
   return (
     <Link
-      to={`/`}
+      to="#"
+      onClick={() => onOpen(workout._id)}
       className="card bg-base-100 hover:shadow-lg transition-all duration-200
   border-4 border-solid border-primary"
     >

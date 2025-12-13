@@ -9,10 +9,28 @@ IV. delete workout by id
 V. update(patch) workout by id
 
 > Frontend (WIP)
-I. Created Homepage
-II. Created Components Navbar, Popup, RateLimitedUI,
+Dec 5, 2025
+Initial:
+- Created Homepage
+- Created Components Navbar, Popup, RateLimitedUI,
 Workout Card, Workout Form, Workout Not Found UI.
-III. Created Modal Popup window for "+ New Workout" button
+- Created Modal Popup window for "+ New Workout" button
 instead of navigating to other pages.
 
-2. Apply Authentication, Login and Signup
+Dec 9-13, 2025
+Minor:
+- Add autoFocus for WorkoutDetails.jsx and WorkoutForm.jsx
+- Add ScrollToTop.jsx component
+- Set the Default DaisyUI theme to "dracula"
+
+Major:
+- Add WorkoutDetailPage.jsx for the edit and delete of workouts
+- Add react useRef on Popup.jsx for persistent state of Popups
+- Modify Modal Popup window to be a Popup Window Controller
+for dynamic Popup IDs
+- Modify axios.js to have an API interceptor to dynamically
+detect 429 Rate Limitation across all webpage components
+- Modify isRateLimited as a centralized useState boolean for
+all components, with HomePage.jsx as the ParentPage.
+
+2. Apply Authentication, Login and Signup (SOON)

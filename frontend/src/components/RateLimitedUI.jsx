@@ -9,7 +9,7 @@ const RateLimitedUI = () => {
             <ZapIcon className="size-10 text-primary" />
           </div>
           <div className="flex-1 text-center md:text-left">
-            <h3 className="text-xl font-bold mb-2">Rate Limit Reached</h3>
+            <h3 className="text-xl font-bold mb-2">Oh no!</h3>
             <p className="text-base-content mb-1">
               You've made too many requests in a short period. Please wait for a
               moment.
