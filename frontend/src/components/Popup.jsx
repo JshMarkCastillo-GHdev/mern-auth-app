@@ -12,7 +12,7 @@ const Popup = ({ modal_id, children, onClose }) => {
     <dialog
       id={modal_id}
       ref={dialogRef}
-      className="modal modal-bottom sm:modal-middle relative z-0"
+      className="modal modal-bottom sm:modal-middle"
       onClose={handleDialogClose} // Listen to the close event of the MODAL
     >
       <div className="modal-box items-center justify-center">

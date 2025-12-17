@@ -23,9 +23,7 @@ const WorkoutCard = ({ workout, setWorkouts, onOpen }) => {
     // IN PROGRESS (used Popup Window Method)
   };
   return (
-    <Link
-      to="#"
-      onClick={() => onOpen(workout._id)}
+    <div
       className="card bg-base-100 hover:shadow-lg transition-all duration-200
   border-4 border-solid border-primary"
     >
@@ -44,19 +42,22 @@ const WorkoutCard = ({ workout, setWorkouts, onOpen }) => {
             {formatDate(new Date(workout.createdAt))}
           </span>
           <div className="flex items-center gap-1">
-            <button className="btn btn-ghost btn-xs text-white">
-              <PenSquareIcon className="size-4" />
+            <button
+              className="btn btn-ghost btn-md text-white"
+              onClick={() => onOpen(workout._id)}
+            >
+              <PenSquareIcon className="size-7" />
             </button>
             <button
-              className="btn btn-ghost btn-xs text-red-700"
+              className="btn btn-ghost btn-md text-red-700"
               onClick={(e) => handleDelete(e, workout._id)}
             >
-              <Trash2Icon className="size-4" />
+              <Trash2Icon className="size-7" />
             </button>
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

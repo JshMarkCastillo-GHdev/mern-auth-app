@@ -4,10 +4,11 @@ import toast from "react-hot-toast";
 import api, { rateLimitHandler } from "../lib/axios";
 import RateLimitedUI from "../components/RateLimitedUI";
 import WorkoutsNotFound from "../components/WorkoutsNotFound";
-import WorkoutCard from "../components/workoutCard";
+import WorkoutCard from "../components/WorkoutCard";
 import WorkoutForm from "../components/WorkoutForm";
 import Popup from "../components/Popup";
 import WorkoutDetail from "../components/WorkoutDetail";
+import { LoaderIcon } from "lucide-react";
 
 const HomePage = () => {
   const [isRateLimited, setIsRateLimited] = useState(false);
@@ -60,11 +61,14 @@ const HomePage = () => {
       {isRateLimited && <RateLimitedUI />}
       <div className="max-w-7xl mx-auto p-4 mt-6">
         {loading && (
-          <div className="text-center text-primary py-10">
-            Loading Workouts...
+          <div className="min-h-screen bg-base-200 flex items-center justify-center">
+            <LoaderIcon className="animate-spin size-10" />
           </div>
         )}
-        {workouts.length === 0 && !isRateLimited && <WorkoutsNotFound />}
+
+        {!loading && workouts.length === 0 && !isRateLimited && (
+          <WorkoutsNotFound />
+        )}
 
         {workouts.length > 0 && !isRateLimited && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
