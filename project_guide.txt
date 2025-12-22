@@ -144,13 +144,30 @@ IV. Install DaisyUI
 - add .gitnore from frontend folder
 - add .env | node_modules | dist to .gitignore
 
-2. npm init -y 
+2. go to rateLimiter.js and update the name of your Redis Keyspace
+to avoid conflict with your old projects with the same Keyspace name
+
+3. npm init -y 
 - package.json
 - update package.json
 "scripts":{
 "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
 "start": "npm run start --prefix backend"
 }
+
+4. go to server.js and update your code based on the comment
+// Deployment in RENDER
+in order for the project to
+- Deactivate CORS in PRODUCTION
+- Join frontend and backend API calls
+
+5. go to /frontend/axios.js and make your Api calls from the backend, dynamic
+const BASE_URL =
+  import.meta.env.MODE === "development" ? "http://localhost:5001/api" : "/api";
+
+const api = axios.create({
+  baseURL: BASE_URL,
+});
 
 === HTTP STATUS CODES ===
 

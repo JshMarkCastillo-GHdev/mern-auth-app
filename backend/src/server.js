@@ -18,7 +18,7 @@ dotenv.config();
 const app = express();
 const serverPort = process.env.PORT || 5001;
 
-// Deployment to RENDEr
+// Deployment to RENDER
 const __dirname = path.resolve();
 
 // Read JSON Response
@@ -36,6 +36,16 @@ if (process.env.NODE_ENV !== "production") {
 
 // Setup Routes and add Middleware(rateLimiting)
 app.use("/api/workouts", ratelimiter, workoutRoutes);
+
+// Deployment to RENDER
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+  // Both the backend and the frontend app will be served on the same port
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
 
 // app listen for request, BUT check database first
 connectDB().then(() => {
