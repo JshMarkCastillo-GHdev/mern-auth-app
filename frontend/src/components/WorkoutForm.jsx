@@ -10,9 +10,9 @@ const WorkoutForm = ({ modal_id, setWorkouts }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(title);
-    console.log(reps);
-    console.log(load);
+    // console.log(title);
+    // console.log(reps);
+    // console.log(load);
 
     // Values must not be empty
     if (!title.trim() || !reps.trim() || !load.trim()) {
