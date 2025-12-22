@@ -21,9 +21,6 @@ const serverPort = process.env.PORT || 5001;
 // Deployment to RENDER
 const __dirname = path.resolve();
 
-// Read JSON Response
-app.use(express.json());
-
 // Allow backend fetch during development
 if (process.env.NODE_ENV !== "production") {
   // Activate CORS if we are in Dev Mode
@@ -33,6 +30,8 @@ if (process.env.NODE_ENV !== "production") {
     })
   );
 }
+// Read JSON Response
+app.use(express.json());
 
 // Setup Routes and add Middleware(rateLimiting)
 app.use("/api/workouts", ratelimiter, workoutRoutes);
@@ -41,8 +40,10 @@ app.use("/api/workouts", ratelimiter, workoutRoutes);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
+  // IMPORTANT:
   // Both the backend and the frontend app will be served on the same port
-  app.get("*", (req, res) => {
+  // FOR EXPRESS 5+ modify "*"
+  app.get("/{*splat}", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }

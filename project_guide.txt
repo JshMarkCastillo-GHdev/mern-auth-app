@@ -169,6 +169,13 @@ const api = axios.create({
   baseURL: BASE_URL,
 });
 
+6. IMPORTANT: upon noticing the changes from EXPRESS 4 to 5, I changed the
+"*" to "/{*splat}" on the backend serving the frontend elements.
+- On my recent project "mern-notes-app", i have used "*" to just simply serve the
+frontend from backend.
+- It seems that these are not applicable to EXPRESS JS v5, so I changed
+to "/{*splat}" which does the same thing but modified on EXPRESS JS v5.
+
 === HTTP STATUS CODES ===
 
 1XX - informational
