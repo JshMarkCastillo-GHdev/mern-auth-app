@@ -39,7 +39,11 @@ const WorkoutCard = ({ workout, setWorkouts, onOpen }) => {
         </p>
         <div className="card-actions justify-between items-center mt-4">
           <span className="text-sm text-base-content/60">
+            Created: &nbsp;
             {formatDate(new Date(workout.createdAt))}
+            <br />
+            Last updated: &nbsp;
+            {formatDate(new Date(workout.updatedAt))}
           </span>
           <div className="flex items-center gap-1">
             <button
