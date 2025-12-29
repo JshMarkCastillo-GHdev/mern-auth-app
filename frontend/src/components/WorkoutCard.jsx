@@ -47,16 +47,16 @@ const WorkoutCard = ({ workout, setWorkouts, onOpen }) => {
           </span>
           <div className="flex items-center gap-1">
             <button
-              className="btn btn-ghost btn-md text-white"
+              className="btn btn-ghost btn-sm text-white"
               onClick={() => onOpen(workout._id)}
             >
-              <PenSquareIcon className="size-7" />
+              <PenSquareIcon className="size-5" />
             </button>
             <button
-              className="btn btn-ghost btn-md text-red-700"
+              className="btn btn-ghost btn-sm text-red-700"
               onClick={(e) => handleDelete(e, workout._id)}
             >
-              <Trash2Icon className="size-7" />
+              <Trash2Icon className="size-5" />
             </button>
           </div>
         </div>
